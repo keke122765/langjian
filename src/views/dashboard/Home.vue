@@ -46,23 +46,19 @@
         </a-col>
       </a-row>
       <a-card :loading="loading" :bordered="false" :body-style="{padding: '0'}">
-      <div class="salesCard">
-        <a-tabs default-active-key="1" size="large" :tab-bar-style="{paddingLeft: '16px'}">
-          <div class="extra-wrapper" slot="tabBarExtraContent">
-            <div class="extra-item">
-              <a>今日</a>
+        <div class="salesCard">
+          <a-tabs default-active-key="1" size="large" :tab-bar-style="{paddingLeft: '16px'}">
+            <div class="extra-wrapper" slot="tabBarExtraContent">
+              <div class="extra-item">
+                <a>今日</a>
+              </div>
             </div>
-          </div>
-          <a-tab-pane loading="true" tab="每日利润" key="1">
-            <a-row>
-              <a-col :xl="24" :lg="24" :md="24" :sm="24" :xs="24">
-                <bar />
-              </a-col>
-            </a-row>
-          </a-tab-pane>
-        </a-tabs>
-      </div>
-    </a-card>
+            <a-tab-pane loading="true" tab="每日利润" key="1">
+                <bar/>
+            </a-tab-pane>
+          </a-tabs>
+        </div>
+      </a-card>
     </div>
   </div>
 </template>
