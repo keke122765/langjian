@@ -47,6 +47,22 @@ export const asyncRouterMap = [
         ]
       },
 
+      // Cards
+      {
+        path: '/crad',
+        redirect: '/card/mycards',
+        component: PageView,
+        meta: { title: '卡片中心', icon: 'form' },
+        children: [
+          {
+            path: '/card/mycards',
+            name: 'Mycards',
+            component: () => import('@/views/card/Mycards'),
+            meta: { title: '我的卡片', keepAlive: true}
+          }
+        ]
+      },
+
       // forms
       {
         path: '/form',

@@ -8,6 +8,7 @@
       </div>
     </page-view>
     <div class="page-header-index-wide">
+      <!-- 4 cards -->
       <a-row :gutter="24">
         <a-col :sm="24" :md="12" :xl="6" :style="{ marginBottom: '24px' }">
           <chart-card :loading="loading" title="今日收入" total="￥597">
@@ -45,16 +46,20 @@
           </chart-card>
         </a-col>
       </a-row>
+
+      <!-- chart & top7 -->
       <a-card :loading="loading" :bordered="false" :body-style="{padding: '0'}">
         <div class="salesCard">
           <a-tabs default-active-key="1" size="large" :tab-bar-style="{paddingLeft: '16px'}">
-            <div class="extra-wrapper" slot="tabBarExtraContent">
-              <div class="extra-item">
-                <a>今日</a>
-              </div>
-            </div>
-            <a-tab-pane loading="true" tab="每日利润" key="1">
-                <bar/>
+            <a-tab-pane loading="true" tab="营销报表" key="1">
+              <a-row>
+                <a-col :xl="18" :lg="13" :md="13" :sm="24" :xs="24">
+                  <bar title="15日报表"/>
+                </a-col>
+                <a-col :xl="6" :lg="11" :md="11" :sm="24" :xs="24">
+                  <rank-list title="返利排行榜" :list="rankList"/>
+                </a-col>
+              </a-row>
             </a-tab-pane>
           </a-tabs>
         </div>
@@ -68,10 +73,20 @@ import { timeFix } from '@/utils/util'
 import { mapGetters } from 'vuex'
 
 import { PageView } from '@/layouts'
-import { Radar, ChartCard, Bar } from '@/components'
+import { Radar, ChartCard, Bar, RankList } from '@/components'
 
 import { getRoleList, getServiceList } from '@/api/manage'
 
+const rankList = []
+const nameList = ['刘','彭','袁','郇','陈','闫','阮','欧','孙','刘','张','张','李','谷','杨','姚','黄','董','孙','苏','张','肖','刘','顾','张','许','刘','张','陈','黄','辛','姚','张','范','徐','王','黄','付','吴','张','王','王','李','朱','朱','彭','李','赵','林','司','刘','孔','杨','巴','杨','戴','张','庞','李','胡','贺','王','秦','赵','张','罗','乔','肉','杨','焦','刘','王','宋','李','张'];
+console.log(nameList.length)
+for (let i = 0; i < 7; i++) {
+  rankList.push({
+    name: nameList[Math.round(Math.random() * 74)]+(Math.round(Math.random())==1?'**':'*'),
+    phone: '188****8888',
+    total: 1234.56 - i * 100
+  })
+}
 const DataSet = require('@antv/data-set')
 
 export default {
@@ -80,10 +95,12 @@ export default {
     PageView,
     Radar,
     ChartCard,
-    Bar
+    Bar,
+    RankList
   },
   data() {
     return {
+      rankList,
       timeFix: timeFix(),
       avatar: '',
       user: {},

@@ -1,7 +1,8 @@
 <template>
-  <div :style="{ padding: '24px' }">
+  <div :style="{ padding: '12px 44px 12px 12px' }">
+    <h4 :style="{ marginBottom: '20px' }">{{ title }}</h4>
     <v-chart
-      height="400"
+      height="254"
       :data="data"
       :forceFit="true"
       :padding="['auto', 'auto', '40', '50']">
@@ -14,7 +15,7 @@
 
 <script>
 const data = []
-for (let i = 0; i < 30; i += 1) {
+for (let i = 0; i < 15; i += 1) {
   data.push({
     x: `${i + 1}`,
     y: Math.floor(Math.random() * 1000) + 200
@@ -40,6 +41,10 @@ const scale = [{
 export default {
   name: 'Bar',
   props: {
+    title: {
+      type: String,
+      default: ''
+    }
   },
   data () {
     this.colors = ['#c4ccd3','#2f4554', '#61a0a8',

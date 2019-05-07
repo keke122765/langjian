@@ -5,6 +5,7 @@
       <li :key="index" v-for="(item, index) in list">
         <span :class="index < 3 ? 'active' : null">{{ index + 1 }}</span>
         <span>{{ item.name }}</span>
+        <span>{{ item.phone }}</span>
         <span>{{ item.total }}</span>
       </li>
     </ul>
@@ -29,49 +30,54 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.rank {
+  padding: 12px;
 
-  .rank {
-    padding: 0 32px 32px 72px;
+  .list {
+    padding: 0;
+    list-style: none;
 
-    .list {
-      margin: 25px 0 0;
-      padding: 0;
-      list-style: none;
+    li {
+      margin-top: 15px;
 
-      li {
-        margin-top: 16px;
+      span {
+        color: rgba(0, 0, 0, 0.65);
+        font-size: 14px;
+        line-height: 22px;
 
-        span {
-          color: rgba(0, 0, 0, .65);
-          font-size: 14px;
-          line-height: 22px;
-
-          &:first-child {
-            background-color: #f5f5f5;
-            border-radius: 20px;
-            display: inline-block;
-            font-size: 12px;
-            font-weight: 600;
-            margin-right: 24px;
-            height: 20px;
-            line-height: 20px;
-            width: 20px;
-            text-align: center;
-          }
-          &.active {
-            background-color: #314659;
-            color: #fff;
-          }
-          &:last-child {
-            float: right;
-          }
+        &:first-child {
+          background-color: #f5f5f5;
+          border-radius: 20px;
+          display: inline-block;
+          font-size: 12px;
+          font-weight: 600;
+          margin-right: 12px;
+          height: 20px;
+          line-height: 20px;
+          width: 20px;
+          text-align: center;
+        }
+        &:nth-child(2) {
+          display: inline-block;
+          width: 20%;
+        }
+        &:nth-child(3) {
+          width: 20%;
+          background-color: #fff;
+        }
+        &.active {
+          background-color: #314659;
+          color: #fff;
+        }
+        &:last-child {
+          float: right;
         }
       }
     }
   }
+}
 
-  .mobile .rank {
-    padding: 0 32px 32px 32px;
-  }
-
+.mobile .rank {
+  padding: 0 32px 32px 32px;
+}
 </style>

@@ -29,7 +29,7 @@ export default {
     },
     pageSize: {
       type: Number,
-      default: 10
+      default: 12
     },
     showSizeChanger: {
       type: Boolean,
@@ -290,12 +290,13 @@ export default {
       props[k] = this[k]
       return props[k]
     })
+    console.log(props)
     const table = (
       <a-table {...{ props, scopedSlots: { ...this.$scopedSlots } }} onChange={this.loadData}>
         { Object.keys(this.$slots).map(name => (<template slot={name}>{this.$slots[name]}</template>)) }
       </a-table>
     )
-
+    
     return (
       <div class="table-wrapper">
         { showAlert ? this.renderAlert() : null }
