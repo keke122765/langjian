@@ -91,7 +91,8 @@ module.exports = {
     proxy: {
       '/api': {
         // target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a5116/antd-pro',
-        target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a51116/antd-pro',
+        //target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a5116/antd-pro',
+        target: 'https://easy-mock.com/mock/5cd193a42308e65f3eb241d8',
         ws: false,
         changeOrigin: true
       }
